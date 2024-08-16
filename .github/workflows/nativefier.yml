@@ -24,9 +24,9 @@ jobs:
       - name: Build Mac app
         run: nativefier --platform=mac --name "EmotionDesktopApp" "https://fabledkraken.github.io/"
 
-      - name: Create password-protected DMG
+      - name: Create DMG without password
         run: |
-          hdiutil create -volname "EmotionDesktopApp" -srcfolder "EmotionDesktopApp-darwin-arm64/EmotionDesktopApp.app" -ov -format UDZO -encryption -stdinpass "EmotionDesktopApp.dmg" <<< "$ZIP_PASSWORD"
+          hdiutil create -volname "EmotionDesktopApp" -srcfolder "EmotionDesktopApp-darwin-arm64/EmotionDesktopApp.app" -ov -format UDZO "EmotionDesktopApp.dmg"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
