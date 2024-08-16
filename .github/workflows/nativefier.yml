@@ -26,8 +26,8 @@ jobs:
 
       - name: Archive the app with password protection
         run: |
-          echo "$ZIP_PASSWORD" > password.txt
-          zip -r -e -P $ZIP_PASSWORD EmotionDesktopApp.zip EmotionDesktopApp-darwin-arm64/EmotionDesktopApp.app
+          cd EmotionDesktopApp-darwin-arm64
+          zip -r -e -P $ZIP_PASSWORD ../EmotionDesktopApp.zip EmotionDesktopApp.app
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
