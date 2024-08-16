@@ -24,8 +24,11 @@ jobs:
       - name: Build Mac app
         run: nativefier --platform=mac --name "EmotionDesktopApp" "https://fabledkraken.github.io"
 
+      - name: List files
+        run: ls -R
+
       - name: Archive the app
-        run: zip -r EmotionDesktopApp.zip EmotionDesktopApp-mac-arm64/EmotionDesktopApp.app
+        run: zip -r EmotionDesktopApp.zip EmotionDesktopApp-darwin-x64/EmotionDesktopApp.app
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
