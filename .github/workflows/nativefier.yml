@@ -22,13 +22,10 @@ jobs:
         run: npm install -g nativefier
 
       - name: Build Mac app
-        run: nativefier --platform=mac --name "EmotionDesktopApp" "https://fabledkraken.github.io"
-
-      - name: List files
-        run: ls -R
+        run: nativefier --platform=mac --name "EmotionDesktopApp" "https://fabledkraken.github.io/"
 
       - name: Archive the app
-        run: zip -r EmotionDesktopApp.zip EmotionDesktopApp-darwin-x64/EmotionDesktopApp.app
+        run: zip -r EmotionDesktopApp.zip EmotionDesktopApp-darwin-arm64/EmotionDesktopApp.app
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
